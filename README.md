@@ -7,3 +7,20 @@ XTEA (eXtended TEA) is a symmetric block cipher algorithm designed for secure da
 In each round of XTEA, the plaintext undergoes alternating odd and even rounds, where a set of mathematical operations, including bitwise addition and bitwise XOR, are applied to enhance the security of the encryption. The number of rounds directly correlates with the strength of the algorithm, and XTEA typically employs 64 rounds to ensure robust security.
 
 An illustrative example involves encrypting a 16-byte plaintext with a 16-byte key. XTEA's reliance on fixed-size blocks and a key length of 128 bits contributes to its efficiency and simplicity. The algorithm exhibits a good balance between speed and security, making it suitable for various applications, such as embedded systems and resource-constrained environments. However, it is essential to manage key distribution securely to maintain the overall effectiveness of XTEA in safeguarding sensitive data.
+
+
+# How to use this class 
+Step 1: generate key 
+
+        val keyInBytes = XTEA.getFormattedKey("YourKey")
+
+
+Step 2: Encrypt any file or String with key
+
+        val encryptedData = XTEA.encryptXTEA("fileOrStringInBytes".toByteArray() , keyInBytes)
+
+
+Step 3: Decrypt data with same key
+
+        val decryptedData = XTEA.decryptXTEA(encryptedData , keyInBytes)
+        print(decryptedData)
